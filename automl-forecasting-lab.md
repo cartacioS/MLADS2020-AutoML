@@ -1,4 +1,13 @@
 # MLADS 2020 LAB: Time-series Forecasting with Automated Machine Learning
+The content below is a guide for a self-paced lab to understand time-series forecasting with Automated Machine Learning both through the Python code experience and UI no-code experience. We will walk through common forecasting parameters and considerations when working with time-series data.
+
+# Key Words
+- Time-series
+- Forecasting
+- Hyperparameter tuning
+- Python
+- JupyerLab
+- No-code UI
 
 # Table of Contents
 1. [Automated ML Introduction](#introduction)
@@ -14,6 +23,14 @@ Automated machine learning (automated ML) builds high quality machine learning m
 If you are new to Data Science, automated ML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
 If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. Automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
+
+# Lab agenda
+* Introduction to the studio UI
+* Creating a compute instance
+* Running a python code automated ML experiment
+* Understanding forecasting parameters and concepts
+* Train, evaluate, and deploy your model
+* Easily perform these steps again in a no-code experience
 
 ## The studio and automated ML authoring experience
 Azure ML has a suite of authoring experiences in a user-interface format in [the studio](https://ml.azure.com). 
@@ -32,3 +49,6 @@ In this lab we will be focusing on the Compute Instance environment.
 1. On the left hand panel under the `Manage` section, click on `Compute`
 2. Click `+ New` to create a new compute. *It will take a couple minutes for this compute to to spin-up.*
 3. When the compute `Status` is `Running`, select the `JupyertLab` Application URI.
+
+## Run the lab on JupyterLab
+In this part of the lab we will be covering a python code 
