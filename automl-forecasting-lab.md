@@ -7,7 +7,9 @@ The content below is a guide for a self-paced lab to understand time-series fore
 # Table of Contents
 1. [Prerequisites](#prereqs)
 1. [Automated ML Introduction](#introduction)
-1. [Setup a Compute Instances](#jupyter)
+1. [The studio Introduction](#studio)
+1. [Setup a Compute Instances](#compute)
+1. [Train in JupyertLab](#train)
 1. [Documentation](#documentation)
 1. [Running using python command](#pythoncommand)
 1. [Troubleshooting](#troubleshooting)
@@ -33,6 +35,7 @@ If you are new to Data Science, automated ML will help you get jumpstarted by si
 
 If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. Automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
+<a name="studio"></a>
 ## The studio and automated ML authoring experience
 Azure ML has a suite of authoring experiences in a user-interface format in [the studio](https://ml.azure.com). 
 
@@ -44,6 +47,7 @@ Automated ML is supported by three execution environments:
 * Local Conda environment
 * Azure Databricks 
 
+<a name="compute"></a>
 ## Setup using Compute Instances - Jupyter based notebooks from a Azure Virtual Machine
 In this lab we will be focusing on the Compute Instance environment.
 
@@ -51,5 +55,6 @@ In this lab we will be focusing on the Compute Instance environment.
 2. Click `+ New` to create a new compute. *It will take a couple minutes for this compute to to spin-up.*
 3. When the compute `Status` is `Running`, select the `JupyertLab` Application URI.
 
+<a name="compute"></a>
 ## Run the lab on JupyterLab
 In this part of the lab we will be covering a python code 
