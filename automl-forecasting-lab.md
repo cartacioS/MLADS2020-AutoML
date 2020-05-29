@@ -65,7 +65,7 @@ Forecasting within automated machine learning (ML) now includes capabilities tha
 * Rolling window aggregate features
 * Holiday featurization
 
-In this lab 
+In this lab, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
 
 <a name="start"></a>
 ## Run the lab on JupyterLab
@@ -83,7 +83,7 @@ In this part of the lab we will be covering a Python code example leveraging Jup
 1. Return back to the studio home page [the studio](https://ml.azure.com)
 2. On the left pane under `Author` select the `Automated ML` tab.
 
-## Create and load dataset
+### Create and load dataset
 
 Before you configure your experiment, upload your data file to your workspace in the form of an Azure Machine Learning dataset. Doing so, allows you to ensure that your data is formatted appropriately for your experiment.
 
@@ -162,22 +162,6 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 1. Select **date** as your **Time column** and leave **Group by column(s)** blank. 
 
-    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
-
-  
-        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
-        ------|---------|---
-        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
-        Automatic featurization| Enables preprocessing. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-        Explain best model (preview)| Automatically shows explainability on the best model created by automated ML.| Enable
-        Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-        Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast horizon**_: length of time into the future you want to predict <br> _**Forecast target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
-        Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
-        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
-        
-        Select **Save**.
-
 ## Run experiment
 
 To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
@@ -189,23 +173,20 @@ To run your experiment, select **Finish**. The **Run details**  screen opens wit
 
 ##  Explore models
 
-Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **Normalized root mean squared error** metric is at the top of the list.
+Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete.
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
 The following example navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run detail](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Run detail](./exploremodelsui.gif)
 
 ## Deploy the model
 
-Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
-
-For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
+Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps.
 
 Once the run is complete, navigate back to the **Run detail** page and select the **Models** tab.
 
-In this experiment context, **StackEnsemble** is considered the best model, based on the **Normalized root mean squared error** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
 1. Select the **Deploy best model** button in the bottom-left corner.
 
@@ -228,8 +209,6 @@ In this experiment context, **StackEnsemble** is considered the best model, base
     
 Once deployment succeeds, you have an operational web service to generate predictions. 
 
-Proceed to the [**Next steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
-
 ## Clean up resources
 
 Deployment files are larger than data and experiment files, so they cost more to store. Delete only the deployment files to minimize costs to your account, or if you want to keep your workspace and experiment files. Otherwise, delete the entire resource group, if you don't plan to use any of the files.  
@@ -245,24 +224,10 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 1. Select **Proceed**.
 
 ### Delete the resource group
+If you don't plan to use the resources you created, delete them, so you don't incur any charges:
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
-## Next steps
-
-In this tutorial, you used automated ML in the Azure Machine Learning studio to create and deploy a time series forecasting model that predicts bike share rental demand. 
-
-See this article for steps on how to create a Power BI supported schema to facilitate consumption of your newly deployed web service:
-
-> [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
-
-+ Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
-+ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
-
->[!NOTE]
-> This bike share dataset has been modified for this tutorial. This dataset was made available as part of a [Kaggle competition](https://www.kaggle.com/c/bike-sharing-demand/data) and was originally available via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). It can also be found within the [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>
-> Source: Fanaee-T, Hadi, and Gama, Joao, Event labeling combining ensemble detectors and background knowledge, Progress in Artificial Intelligence (2013): pp. 1-15, Springer Berlin Heidelberg.
-
+1. In the Azure portal, select Resource groups on the far left.
+![image](./deleteresources.PNG)
+1. From the list, select the resource group you created.
+1. Select Delete resource group.
+1. Enter the resource group name. Then select Delete.
