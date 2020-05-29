@@ -54,15 +54,21 @@ Automated ML is supported by multiple execution environments including:
 * Azure Databricks
 
 <a name="compute"></a>
-## Setup using Compute Instances
+## Setup using compute instances
 In this lab we will be focusing on the Compute Instance environment.
 
 1. On the left hand panel under the `Manage` section, click on `Compute`
-![image](./managecompute.PNG)
+![image](./computepane.gif)
 2. Click `+ New` to create a new compute. *It will take a couple minutes for this compute to to spin-up.*
 ![image](./createcompute.gif)
 3. When the compute `Status` is `Running`, select the `JupyertLab` Application URI.
 
-<a name="compute"></a>
+<a name="forecast"></a>
+## Forecasting overview
+
+Time series forecasting is the process of predicting future outcomes based on historic information. Building forecasts is an integral part of any business, whether it’s revenue, inventory, sales, or customer demand. Building machine learning models is time-consuming and complex with many factors to consider, such as iterating through algorithms, tuning your hyperparameters and feature engineering. These choices multiply with time series data, with additional considerations of trends, seasonality, holidays and effectively splitting training data.
+![image](./forecastvisual.PNG)
+
+<a name="start"></a>
 ## Run the lab on JupyterLab
 In this part of the lab we will be covering a python code 
